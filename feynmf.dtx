@@ -6315,6 +6315,8 @@ vardef handle_vertex_option (suffix v) (expr opt, arg) =
     get_argument (opt, scantokens (arg), v.decor.size);
   elseif match_option (opt, "decoration.angle"):
     get_argument (opt, scantokens (arg), v.decor.ang);
+  elseif match_option (opt, "decoration.width"):
+    get_argument (opt, scantokens (arg), v.decor.wd);
 %<*mp>
   elseif match_option (opt, "foreground"):
     get_argument (opt, scantokens (arg), v.fore);
@@ -7361,6 +7363,9 @@ enddef;
 %    \begin{macrocode}
 vardef vdraw_vertex suffix v =
   if known v.decor.shape:
+    if known v.decor.wd:
+      pickup pencircle scaled v.decor.wd;
+    fi
 %<*mp>
     if known v.fore:
       save foreground;
