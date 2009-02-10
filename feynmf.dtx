@@ -954,6 +954,7 @@
 %     "decoration.size"    & size of decoration \\\hline
 %     "decoration.filled"  & fill, shade or hatch decoration \\\hline
 %     "decoration.angle"   & rotate decoration \\\hline
+%     "decoration.width"   & linewidth of decoration \\\hline
 %     "foreground"         & foreground color (\MP{} only!)\\\hline
 %     "background"         & background color (\MP{} only!)\\\hline
 %   \end{tabular}
@@ -1069,6 +1070,19 @@
 % \begin{flushleft}
 %   |\fmfv{decor.shape=circle,decor.filled=full,|\\
 %   \qquad |decor.size=2thick}{|\meta{v1}$[$|,|\ldots$]$|}|
+% \end{flushleft}
+% \end{quote}
+% \DescribeMacro{\fmfct}
+% \manindex{dots}
+% Draw a thick cross at the vertices given as arguments to indicate a
+% counterterm.
+% \begin{quote}
+%   |\fmfct{|\meta{v1}$[$|,|\ldots$]$|}|
+% \end{quote}
+% is equivalent to
+% \begin{quote}
+% \begin{flushleft}
+%   |\fmfv{decor.shape=cross,decor.width=thick}{|\meta{v1}$[$|,|\ldots$]$|}|
 % \end{flushleft}
 % \end{quote}
 % \DescribeMacro{\fmfvn}
@@ -6393,13 +6407,15 @@ enddef;
 %
 % \begin{macro}{\fmfblob}
 %   \begin{macro}{\fmfdot}
+%     \begin{macro}{\fmfct}
 % We can decorate vertices with ``blobs'' and dots from \TeX{} with
 % the command sequences:
-%    \begin{macrocode}
+%      \begin{macrocode}
 %<style>\def\fmfblob#1#2{\fmfcmd{vblob ((#1), \fmfpfx{#2});}}
 %<style>\def\fmfdot#1{\fmfcmd{vdot (\fmfpfx{#1});}}
 %<style>\def\fmfct#1{\fmfcmd{vvertex ("decoration.shape=cross,decoration.width=thick", \fmfpfx{#1});}}
-%    \end{macrocode}
+%      \end{macrocode}
+%     \end{macro}{\fmfct}
 %   \end{macro}
 % \end{macro}
 %
