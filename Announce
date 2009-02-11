@@ -1,0 +1,31 @@
+To: ctan-ann@shsu.edu,
+    feynmf-announce@crunch.ikp.physik.th-darmstadt.de
+Subject: [LaTeX/Metafont] Feynman diagrams: FeynMF v1.08 released
+
+This announces version 1.08 of feynmf, a combined LaTeX and Metafont
+(or Metapost) package for easy drawing of professional quality Feynman
+(and maybe other) diagrams.
+
+Version 1.08 is mainly a bug fix release and offers a driver script as
+the only new feature.  The driver script is still experimental and I
+will be grateful for portability suggestions (it has been developed with
+teTeX under Linux).
+
+This software will show up through the magic of mirroring at the CTAN
+host near you.
+
+Enjoy,
+-Thorsten
+
+NEWS for Version 1.08
+
+    *  Improved very short gluon and photon propagators by relaxing
+    overly aggressive rounding.
+
+    *  New (still experimental) `feynmf' script automating the
+    invocation of Metafont (requires perl(1)).
+
+/// Thorsten Ohl, TH Darmstadt, Schlossgartenstr. 9, D-64289 Darmstadt, Germany
+//////////////// net: ohl@crunch.ikp.physik.th-darmstadt.de, ohl@gnu.ai.mit.edu
+/// voice: +49-6151-16-3116, secretary: +49-6151-16-2072, fax: +49-6151-16-2421
+

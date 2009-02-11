@@ -1,0 +1,200 @@
+# $Id: README,v 1.30 1996/12/02 01:38:45 ohl Exp $
+########################################################################
+
+    This is feynmf, a combined LaTeX/Metafont package for easy drawing
+    of professional quality Feynman diagrams.  feynmf lays out most
+    diagrams satisfactorily from the structure of the graph without
+    any need for manual intervention.  Nevertheless all the power of
+    Metafont is available for more obscure cases.  See the
+    documentation for appetizers, examples and more details.
+
+    A preformatted manual (`manual.ps.gz') is provided to wet your
+    appetite with numerous examples.
+
+    Anyway, you are invited to share, use, abuse, and improve it, see
+    the file COPYING for details.
+
+    Enjoy,
+    -Thorsten
+
+########################################################################
+
+   Installation:
+
+   You need a recent LaTeX (LaTeX2e, as of December 1994 is
+   sufficient) to use feynmf,  docstrip.tex to install it and doc.sty
+   to typeset the documentation.  If it is not already on your system,
+   you can get all this (and much more) from your nearest CTAN host.
+
+   To install, either use the Makefile or use the installation file
+   feynmf.ins:
+
+     $ latex feynmf.ins
+
+   then you can typeset the documentation by
+
+     $ latex fmfman.drv
+     $ mf '\mode:=laserjet; input fmfsamp1'
+     $ mf '\mode:=laserjet; input fmfsamp2'
+     $ mf '\mode:=laserjet; input fmfsamp3'
+     $ mf '\mode:=laserjet; input fmfsamp4'
+     $ latex fmfman.drv
+     $ makeindex -s gind.ist -o fmfman.ind fmfman.idx
+     $ makeindex -s gglo.ist -o fmfman.gls fmfman.glo
+     $ latex fmfman.drv
+
+   or by using the Makefile (`make man').  That's it.
+
+   There is also a simple example `template.tex' that you can use as
+   a template for your own creations.  To typeset, either use the
+   feynmf script
+
+     $ feynmf template
+
+   or run Metafont manually
+
+     $ latex template
+     $ mf '\mode:=localfont; input fmftempl'
+     $ latex template
+
+   Finally, there is another installation file for LaTeX 2.09 compatible
+   versions: feynmf209.ins.  This file has to be processed _in addition_
+   to feynmf.ins!
+
+########################################################################
+
+WARNING:
+
+    If LaTeX fails with `Unknown graphics extension: 3', you have a
+    slightly out-of-date graphics.sty file (LaTeX will have issued a
+    warning in this case).  There has been a change to the user
+    interface, which makes it very hard to support both versions.
+    Sorry.  I have chosen to support the current one, which will
+    hopefully be stable.
+
+    You can work around this by either getting a more recent graphics
+    package from CTAN (macros/latex/packages/graphics) or by using
+    epsf.sty instead (`\let\includegraphics\epsffile\input epsf.sty').
+    [You can also ignore it and get the preformatted manual.  But you
+    will not be able to use the MetaPost version in this case.]
+
+########################################################################
+
+    Comments, bug reports and improvements are welcome at:
+
+        Thorsten.Ohl@Physik.TH-Darmstadt.de
+        (aka: ohl@crunch.ikp.physik.th-darmstadt.de)
+
+    New versions can be found in:
+
+        crunch.ikp.physik.th-darmstadt.de:/pub/ohl/feynmf
+
+    or at CTAN:
+
+        {ftp.shsu.edu,ftp.tex.ac.uk,ftp.dante.de}:
+          ... macros/latex/contrib/supported/feynmf
+
+    There are two mailing lists
+
+        feynmf-announce@crunch.ikp.physik.th-darmstadt.de
+        feynmf-bugs@crunch.ikp.physik.th-darmstadt.de
+
+    both are open for subscription.  The former should be very low
+    volume and carry only important announcements.  The latter can
+    serve as a more general discussion forum.
+
+    To subscribe, send mail to
+
+        majordomo@crunch.ikp.physik.th-darmstadt.de
+
+    and NOT to the lists itself.  The following commands (on a line in
+    the body of the mail, not in the subject) are useful: `subscribe
+    feynmf-announce', `unsubscribe feynmf-bugs', `help', etc.
+
+########################################################################
+
+NEWS for Version 1.08
+
+    *  Improved very short gluon and photon propagators by relaxing
+    overly aggressive rounding.
+
+    *  New (still experimental) `feynmf' script automating the
+    invocation of Metafont (requires perl(1)).
+
+NEWS for Version 1.07
+
+    *  Switch off I/O during the first pass in AMS-LaTeX equation
+    environments.  This avoids a nasty race condition (thanks to Axel
+    Thimm for reporting this bug).  A beneficial side effect is that
+    it saves us 50% processing time in these cases.
+
+NEWS for Version 1.06
+
+    *  New abstraction: polygons.  Useful for complex vertices in
+    non-perturbative diagrams.
+
+    *  New commands: \fmfpoly, \fmfpolyn and \fmfrpolyn, implementing
+    polygons.
+
+    *  New option `rubout' for crossing propagators.
+
+    *  Some common typos are detected are appropriate warning messages
+    are issued.
+
+    *  New options `errorstop', `scroll', `nonstop' and `batch' for
+    specifying the desired interactionmode.
+
+    *  Work around an obscure babel/german/feynmf three way
+    destructive interference.
+
+NEWS for Version 1.05
+
+    *  FeynMF now coexists with french.sty and other packages that
+    change the \catcode of ``:''.
+
+    *  Fixed a bug introduced in version 1.03, which could cause
+    problems with font loading.  Unfortunately, the fix has to give up
+    some compatibility with earlier versions.  Sources for version
+    1.02 and earlier which used \noexpand in labels have to upgraded
+    or the option `pre-1.03' has to be used.  Sorry.
+
+NEWS for Version 1.04
+
+    *  Finally, \fmffixed{(dx,whatever)}{v1,v2} and
+    \fmffixed{(whatever,dy)}{v1,v2} do what you would expect them
+    to.  \fmffixedx and \fmffixedy are new synonyms for those.
+
+NEWS for Version 1.03
+
+    *  It is no longer necessary to protect TeX command sequences with
+    \noexpand.  Old files using \noexpand will continue to work.
+
+NEWS for Version 1.02
+
+    *  Read the .tfm file before writing the .mf file destructively.
+    This should allow a transparent two pass processing if MakeTeXTFM
+    is enabled.  Thanks to Thomas Esser <te@informatik.uni-hannover.de> 
+    for the suggestion.
+
+NEWS for Version 1.01
+
+    * new decoration shapes for vertices by popular demand: `cross'
+    (also `triacross', `pentacross' and `hexacross').
+
+    * fixed a rounding bug in cut-off ends (noticeable as a spurious
+    thin diagonal line at the left end of double lines).
+
+    * The maximum size for shaded and hatched areas has been doubled
+    by removing an obsolete speedup hack that was not used anymore.
+
+    * In an unrelated move, shading and hatching has been
+    reimplemented in a much more general fashion.  Now arbitray
+    tilings can be specified as argument to `decoration.filled='.  The
+    old style numerical arguments continue to work, but should be
+    replaced by `empty', `full', `shaded', and `hatched' in new
+    documents.
+
+########################################################################
+# Local Variables:
+# mode:indented-text
+# End:

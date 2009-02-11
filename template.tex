@@ -1,0 +1,24 @@
+% template.tex -- trivial FeynMF example
+% $Id: template.tex,v 1.1 1996/12/02 01:38:45 ohl Exp $
+% To typeset, either use the feynmf script
+%   $ feynmf template
+% or run Metafont manually
+%   $ latex template
+%   $ mf '\mode:=localfont; input fmftempl'
+%   $ latex template
+\documentclass{article}
+\usepackage{feynmf}%%%{feynmp}
+\unitlength=1mm
+\begin{document}
+\begin{fmffile}{fmftempl}
+\begin{fmfchar*}(40,25)
+  \fmfleft{em,ep} \fmflabel{$e^+$}{ep} \fmflabel{$e^-$}{em}
+  \fmf{fermion}{em,Zee,ep}
+  \fmf{photon,label=$\gamma,,Z$}{Zee,Zff}
+  \fmf{fermion}{fb,Zff,f}
+  \fmfright{fb,f} \fmflabel{$\bar f'$}{fb} \fmflabel{$f$}{f}
+  \fmfdot{Zee,Zff}
+\end{fmfchar*}
+\end{fmffile}
+\end{document}
+
