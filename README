@@ -113,6 +113,14 @@ WARNING:
 
 ########################################################################
 
+NEWS for Version 1.09 (unreleased)
+
+    *  New option `decoration.width' for \fmfv, specifies the linewidth
+    with which vertex decorations are drawn.
+
+    *  New command: \fmfct{v} decorates a vertex with a cross, marking
+    it as a counter term vertex.
+
 NEWS for Version 1.08
 
     *  Improved very short gluon and photon propagators by relaxing
