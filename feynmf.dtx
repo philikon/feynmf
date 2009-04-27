@@ -7381,6 +7381,8 @@ enddef;
 vardef vdraw_vertex suffix v =
   if known v.decor.shape:
     if known v.decor.wd:
+      save currentpen;
+      pen currentpen;
       pickup pencircle scaled v.decor.wd;
     fi
 %<*mp>
