@@ -5290,6 +5290,10 @@ enddef;
 style_def dbl_wiggly expr p =
   draw_double (wiggly p);
 enddef;
+style_def gluino expr p =
+  cdraw (wiggly p);
+  cdraw p;
+enddef;
 %    \end{macrocode}
 % and curly lines use |curly| from above
 %    \begin{macrocode}
