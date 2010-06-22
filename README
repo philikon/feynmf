@@ -124,6 +124,9 @@ NEWS for Version 1.09 (unreleased)
     *  New line style `gaugino' which draws both a wiggly and a plain
     line between two vertices.
 
+    *  New line style `gluino' which draws both a curly and a plain
+    line between two vertices.
+
 NEWS for Version 1.08
 
     *  Improved very short gluon and photon propagators by relaxing

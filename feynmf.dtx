@@ -798,6 +798,7 @@
 %   \begin{tabular}{|l|c|l|l|}\hline
 %     Name               & Example                       & Parameters  & Aliases  \\\hline\hline
 %     "curly"            & \linesample{curly}            & "curly_len" & "gluon"  \\\hline
+%     "gluino"           & \linesample{gluino}           & "curly_len" & \\\hline
 %     "dbl_curly"        & \linesample{dbl_curly}        & "curly_len" & \\\hline
 %     "dashes"           & \linesample{dashes}           & "dash_len"  & \\\hline
 %     "dashes_arrow"     & \linesample{dashes_arrow}     & "dash_len"  & "scalar" \\\hline
@@ -5300,6 +5301,10 @@ enddef;
 %    \begin{macrocode}
 style_def curly expr p =
   cdraw (curly p);
+enddef;
+style_def gluino expr p =
+  cdraw (curly p);
+  cdraw p;
 enddef;
 style_def dbl_curly expr p =
   draw_double (curly p);
