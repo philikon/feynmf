@@ -818,7 +818,7 @@
 %                                                                        "heavy"  \\\hline
 %     "wiggly"           & \linesample{wiggly}           & "wiggly_len"& "boson",
 %                                                                        "photon" \\\hline
-%     "gluino"           & \linesample{gluino}           & "wiggly_len"& \\\hline
+%     "gaugino"          & \linesample{gaugino}          & "wiggly_len"& \\\hline
 %     "dbl_wiggly"       & \linesample{dbl_wiggly}       & "wiggly_len"& \\\hline
 %     "zigzag"           & \linesample{zigzag}           & "zigzag_width"& \\\hline
 %     "dbl_zigzag"       & \linesample{dbl_zigzag}       & "zigzag_len"& \\\hline
@@ -5291,7 +5291,7 @@ enddef;
 style_def dbl_wiggly expr p =
   draw_double (wiggly p);
 enddef;
-style_def gluino expr p =
+style_def gaugino expr p =
   cdraw (wiggly p);
   cdraw p;
 enddef;

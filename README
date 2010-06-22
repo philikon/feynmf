@@ -121,7 +121,7 @@ NEWS for Version 1.09 (unreleased)
     *  New command: \fmfct{v} decorates a vertex with a cross, marking
     it as a counter term vertex.
 
-    *  New line style `gluino' which draws both a wiggly and a plain
+    *  New line style `gaugino' which draws both a wiggly and a plain
     line between two vertices.
 
 NEWS for Version 1.08
